@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Productive Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-theme="minimal-white" data-theme-mode="light">
+    <header class="top-bar">
+      <h1 class="app-title">Productive Note Pad</h1>
+      <div class="top-bar__actions">
+        <div class="widget-adder">
+          <label for="widget-type" class="widget-adder__label">Add widget</label>
+          <select id="widget-type" class="widget-adder__select">
+            <option value="note">Note Pad</option>
+            <option value="timer">Timer</option>
+            <option value="calculator">Calculator</option>
+            <option value="calendar">Calendar</option>
+          </select>
+          <button id="add-widget" class="button" type="button">Add</button>
+        </div>
+        <div class="theme-picker">
+          <label for="theme-select" class="theme-picker__label">Theme</label>
+          <select id="theme-select" class="theme-picker__select"></select>
+        </div>
+        <button
+          id="reset-dashboard"
+          class="button button--ghost top-bar__reset"
+          type="button"
+        >
+          Reset dashboard
+        </button>
+      </div>
+    </header>
+    <main class="dashboard">
+      <div class="dashboard__primary">
+        <section
+          id="note-container"
+          class="note-column"
+          aria-live="polite"
+        ></section>
+        <section
+          id="clipboard-panel"
+          class="clipboard-region"
+          aria-live="polite"
+        ></section>
+      </div>
+      <aside class="dashboard__aside">
+        <section
+          id="utility-container"
+          class="utility-stack"
+          aria-live="polite"
+        ></section>
+      </aside>
+    </main>
+    <template id="widget-template">
+      <article class="widget" draggable="true">
+        <header class="widget__header" role="toolbar">
+          <div class="widget__handle" aria-hidden="true">⋮⋮</div>
+          <h2 class="widget__title"></h2>
+          <div class="widget__controls">
+            <button
+              class="button button--ghost widget__remove"
+              aria-label="Remove widget"
+              type="button"
+            ></button>
+          </div>
+        </header>
+        <div class="widget__body"></div>
+      </article>
+    </template>
+    <script src="app.js" defer></script>
+  </body>
+</html>
